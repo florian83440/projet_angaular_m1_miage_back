@@ -1,31 +1,22 @@
-/*function getAssignments(req, res){
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
-
-    const skip = (page - 1) * limit;
-
-    Assignment.find()
-        .skip(skip)
-        .limit(limit)
-        .exec((err, assignments) => {
-            if(err) {
-                res.send(err);
-            }
-            res.send(assignments);
-        });
-}*/
-
 let Assignment = require('../model/assignment');
 
 // Récupérer tous les assignments (GET)
 function getAssignments(req, res){
-    Assignment.find((err, assignments) => {
-        if(err){
-            res.send(err)
-        }
+    var aggregateQuery = Assignment.aggregate();
 
-        res.send(assignments);
-    });
+    Assignment.aggregatePaginate(
+        aggregateQuery,
+        {
+            page: parseInt(req.query.page) || 1,
+            limit: parseInt(req.query.limit) || 10
+        },
+        (err, assignments) => {
+            if (err){
+                res.send(err);
+            }
+            res.send(assignments);
+        }
+    )
 }
 
 // Récupérer un assignment par son id (GET)
