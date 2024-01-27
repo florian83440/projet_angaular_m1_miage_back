@@ -5,8 +5,13 @@ let AssignmentSchema = Schema({
     id: Number,
     dateDeRendu: Date,
     nom: String,
-    rendu: Boolean
+    matiere_id: Number,
+    enseignant_id: Number,
+    rendu: Boolean,
+    note : Number,
+    auteur_id:Number,
+    comment: String
 });
 
 // C'est à travers ce modèle Mongoose qu'on pourra faire le CRUD
-module.exports = mongoose.model('Assignment', AssignmentSchema);
+module.exports = mongoose.model('Assignments', AssignmentSchema, 'Assignments');

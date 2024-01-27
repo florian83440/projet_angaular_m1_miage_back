@@ -1,14 +1,22 @@
 let Assignment = require('../model/assignment');
 
 // Récupérer tous les assignments (GET)
-function getAssignments(req, res){
-    Assignment.find((err, assignments) => {
-        if(err){
-            res.send(err)
-        }
 
-        res.send(assignments);
-    });
+function getAssignments(req, res){
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+
+    const skip = (page - 1) * limit;
+
+    Assignment.find()
+        .skip(skip)
+        .limit(limit)
+        .exec((err, assignments) => {
+            if(err) {
+                res.send(err);
+            }
+            res.send(assignments);
+        });
 }
 
 // Récupérer un assignment par son id (GET)
@@ -27,6 +35,8 @@ function postAssignment(req, res){
     assignment.id = req.body.id;
     assignment.nom = req.body.nom;
     assignment.dateDeRendu = req.body.dateDeRendu;
+    assignment.matiere_id = req.body.matiere_id;
+    assignment.enseignant_id = req.body.enseignant_id;
     assignment.rendu = req.body.rendu;
 
     console.log("POST assignment reçu :");

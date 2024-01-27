@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 
 // remplacer toute cette chaine par l'URI de connexion à votre propre base dans le cloud s
-const uri = 'mongodb+srv://userRW:ruaBVK27KpOAywHt@cluster0.svcxsku.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://userRW:SrKnzKZd20JVTVB0@cluster0.svcxsku.mongodb.net/?retryWrites=true&w=majority';
 
 const options = {
   useNewUrlParser: true,
@@ -60,5 +60,3 @@ app.listen(port, "0.0.0.0");
 console.log('Serveur démarré sur http://localhost:' + port);
 
 module.exports = app;
-
-
