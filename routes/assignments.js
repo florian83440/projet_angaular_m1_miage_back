@@ -1,8 +1,4 @@
-let Assignment = require('../model/assignment');
-
-// Récupérer tous les assignments (GET)
-
-function getAssignments(req, res){
+/*function getAssignments(req, res){
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
 
@@ -17,6 +13,19 @@ function getAssignments(req, res){
             }
             res.send(assignments);
         });
+}*/
+
+let Assignment = require('../model/assignment');
+
+// Récupérer tous les assignments (GET)
+function getAssignments(req, res){
+    Assignment.find((err, assignments) => {
+        if(err){
+            res.send(err)
+        }
+
+        res.send(assignments);
+    });
 }
 
 // Récupérer un assignment par son id (GET)
@@ -35,8 +44,6 @@ function postAssignment(req, res){
     assignment.id = req.body.id;
     assignment.nom = req.body.nom;
     assignment.dateDeRendu = req.body.dateDeRendu;
-    assignment.matiere_id = req.body.matiere_id;
-    assignment.enseignant_id = req.body.enseignant_id;
     assignment.rendu = req.body.rendu;
 
     console.log("POST assignment reçu :");
@@ -59,10 +66,10 @@ function updateAssignment(req, res) {
             console.log(err);
             res.send(err)
         } else {
-          res.json({message: 'updated'})
+            res.json({message: 'updated'})
         }
 
-      // console.log('updated ', assignment)
+        // console.log('updated ', assignment)
     });
 
 }
