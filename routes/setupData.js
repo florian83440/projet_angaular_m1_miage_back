@@ -9,7 +9,6 @@ function peuplerbdd(req, res) {
 }
 
 function addAssignments(tab) {
-    console.log('ok')
     tab.forEach(element => {
         let newAssignment = new Assignment();
 
