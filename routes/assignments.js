@@ -56,11 +56,17 @@ function getAssignment(req, res){
 
 // Ajout d'un assignment (POST)
 function postAssignment(req, res){
+    console.log('POST');
     let assignment = new Assignment();
     assignment.id = req.body.id;
     assignment.nom = req.body.nom;
     assignment.dateDeRendu = req.body.dateDeRendu;
     assignment.rendu = req.body.rendu;
+    assignment.matiere_id = req.body.matiere_id;
+    assignment.enseignant_id = req.body.enseignant_id;
+    assignment.comment = req.body.comment;
+    assignment.note = req.body.note;
+    assignment.auteur_id = req.body.auteur_id;
 
     console.log("POST assignment reçu :");
     console.log(assignment)

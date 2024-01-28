@@ -2,6 +2,7 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let assignment = require('./routes/assignments');
+let setupData = require('./routes/setupData');
 
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -46,19 +47,19 @@ const prefix = '/api';
 app.route(prefix + '/assignments')
     .get(assignment.getAssignments);
 
+app.route(prefix + '/assignments')
+    .post(assignment.postAssignment);
+
 app.route(prefix + '/assignments/:id')
     .get(assignment.getAssignment)
     .delete(assignment.deleteAssignment);
 
-
-app.route(prefix + '/assignments')
-    .post(assignment.postAssignment)
-    .put(assignment.updateAssignment);
+//PEUPLER BDD
+app.route(prefix + '/peuplerbdd')
+    .post(setupData.peuplerbdd);
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
 console.log('Serveur démarré sur http://localhost:' + port);
 
 module.exports = app;
-
-
