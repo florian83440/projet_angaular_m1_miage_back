@@ -5,7 +5,7 @@ function getAssignments(req, res){
 
     let matchConditions = {};
 
-    if (req.query.rendu !== undefined) {
+    if (req.query.rendu !== undefined && req.query.rendu != "") {
         const rendu = req.query.rendu === "true";
 
         matchConditions.rendu = rendu;
