@@ -2,7 +2,32 @@ let Assignment = require('../model/assignment');
 
 // Récupérer tous les assignments (GET)
 function getAssignments(req, res){
-    var aggregateQuery = Assignment.aggregate();
+
+    let matchConditions = {};
+
+    if (req.query.rendu !== undefined) {
+        const rendu = req.query.rendu === "true";
+
+        matchConditions.rendu = rendu;
+    }
+
+    if (req.query.enseignant_id !== undefined) {
+        const enseignant_id = req.query.enseignant_id;
+
+        matchConditions.enseignant_id = parseInt(enseignant_id);
+    }
+
+    if (req.query.matiere_id !== undefined) {
+        const matiere_id = req.query.matiere_id;
+
+        matchConditions.matiere_id = parseInt(matiere_id);
+    }
+
+    const aggregateQuery = Assignment.aggregate([
+        {
+            $match: matchConditions
+        }
+    ]);
 
     Assignment.aggregatePaginate(
         aggregateQuery,
