@@ -1,4 +1,8 @@
-# Backend Report - Gestion des Devoirs
+# Backend Projet Angular - Gestion des Devoirs
+
+## Auteurs
+- Florian AIME
+- Thibault CANAVAGGIO
 
 ## Introduction 🚀
 Bienvenue dans le rapport du backend du projet de gestion des devoirs. Ce backend a été développé dans le cadre du Master 1 MIAGE par Florian AIME et Thibault CANAVAGGIO.
