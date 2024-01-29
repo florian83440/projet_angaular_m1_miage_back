@@ -1,10 +1,15 @@
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
+
 let assignment = require('./routes/assignments');
+let teacher = require('./routes/teacher');
+
 let setupData = require('./routes/setupData');
+let setupDataTeacher = require('./routes/setupDataTeacher');
 
 let mongoose = require('mongoose');
+const punycode = require("punycode");
 mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 
@@ -48,7 +53,8 @@ app.route(prefix + '/assignments')
     .get(assignment.getAssignments);
 
 app.route(prefix + '/assignments')
-    .post(assignment.postAssignment);
+    .post(assignment.postAssignment)
+    .put(assignment.updateAssignment);
 
 app.route(prefix + '/assignments/:id')
     .get(assignment.getAssignment)
@@ -57,6 +63,12 @@ app.route(prefix + '/assignments/:id')
 //PEUPLER BDD
 app.route(prefix + '/peuplerbdd')
     .post(setupData.peuplerbdd);
+app.route(prefix + '/peuplerbdd-teacher')
+    .get(setupDataTeacher.peuplerbdd);
+
+//Teachers
+app.route(prefix + '/teacher')
+    .get(teacher.getTeachers);
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");

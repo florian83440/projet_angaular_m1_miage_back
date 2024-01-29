@@ -23,7 +23,6 @@ function getAssignments(req, res){
         matchConditions.matiere_id = parseInt(matiere_id);
     }
 
-
     if (req.query.value !== "" && req.query.value !== undefined && req.query.data !== "" && req.query.data !== undefined) {
         const filterValue = req.query.value;
         matchConditions[filterValue] = parseInt(req.query.data);
