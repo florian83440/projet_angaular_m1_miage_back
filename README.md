@@ -1,5 +1,4 @@
-![MongoDB]([https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
-))
+![MongoDB]([https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 
@@ -13,7 +12,7 @@
 - [Frontend](https://assignment-front-2c79479bd1b2.herokuapp.com/home)
 - [Backend API](https://assignment-back-c0dfe7c8382c.herokuapp.com/api/assignments)
 - [Repo du back](https://github.com/florian83440/projet_angular_m1_miage_back)
-- 
+
 ## Introduction 🚀
 Bienvenue dans la partie backend du projet de gestion des devoirs. Ce backend a été développé dans le cadre du Master 1 MIAGE par Florian AIME et Thibault CANAVAGGIO.
 
