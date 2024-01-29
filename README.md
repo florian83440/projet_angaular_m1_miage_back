@@ -11,7 +11,7 @@
 ## Accès au Projet 🌐
 - [Frontend](https://assignment-front-2c79479bd1b2.herokuapp.com/home)
 - [Backend API](https://assignment-back-c0dfe7c8382c.herokuapp.com/api/assignments)
-- [Repo du back](https://github.com/florian83440/projet_angular_m1_miage_back)
+- [Repo du front](https://github.com/florian83440/projet_angular_m1_miage)
 
 ## Introduction 🚀
 Bienvenue dans la partie backend du projet de gestion des devoirs. Ce backend a été développé dans le cadre du Master 1 MIAGE par Florian AIME et Thibault CANAVAGGIO.
